@@ -50,6 +50,8 @@ database.ref().on("child_added", function(snapshot) {
     console.log(snapshotVal.role);
     console.log(snapshotVal.startDate);
 
+    timeConversion(snapshotVal.startDate);
+
     var tRow = $("<tr>");
     var tdName = $("<td>");
     var tdRole = $("<td>");
@@ -68,3 +70,9 @@ database.ref().on("child_added", function(snapshot) {
     tRow.append(tdName, tdRole, tdStartDate, tdMonthsWorked, tdMonthlyRate, tdTotalBilled)
     $(".table").append(tRow);
 });
+
+var timeConversion = function(startDate) {
+    var startDateConverted = moment(startDate, "MM-DD-YYYY");
+    console.log(startDateConverted);
+}
+
